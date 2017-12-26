@@ -8,22 +8,39 @@
 
 #import "ViewController.h"
 #import "SubViewController.h"
+#import "ACARequest.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController {
-    NSArray *titleArray;
-    NSArray *bodyArray;
+    NSMutableArray *titleArray;
+    NSMutableArray *bodyArray;
+    
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    titleArray = @[@"title1",@"title2",@"title3",@"title4",@"title5",];
-    bodyArray = @[@"body1",@"body2",@"body3",@"body4",@"body5",];
+//    titleArray = @[@"title1",@"title2",@"title3",@"title4",@"title5"];
+//    bodyArray = @[@"body1",@"body2",@"body3",@"body4",@"body5"];
+    
+    ACARequest *instance = [[ACARequest alloc] init];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // Background operations
+        titleArray = [instance getTeamList];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Main Thread
+            [self.tableView reloadData];
+            NSLog(@"titleArray = %@", titleArray);
+        });
+    });
 }
+    
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
