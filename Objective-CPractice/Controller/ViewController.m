@@ -15,30 +15,22 @@
 @end
 
 @implementation ViewController {
-    NSMutableArray *titleArray;
-    NSMutableArray *bodyArray;
-    
-    
+    NSArray *titleArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    titleArray = @[@"title1",@"title2",@"title3",@"title4",@"title5"];
-//    bodyArray = @[@"body1",@"body2",@"body3",@"body4",@"body5"];
-    
+
     ACARequest *instance = [[ACARequest alloc] init];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Background operations
-        titleArray = [instance getTeamList];
-        
+    [instance getTeamList:^(NSArray *teamList) {
+        titleArray = teamList;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Main Thread
             [self.tableView reloadData];
             NSLog(@"titleArray = %@", titleArray);
         });
-    });
+    }];
 }
     
 
@@ -62,11 +54,7 @@
     NSString *title = [NSString stringWithString:titleArray[indexPath.row]];
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
     titleLabel.text = title;
-    
-    NSString *body = [NSString stringWithString:bodyArray[indexPath.row]];
-    UILabel *bodyLabel = (UILabel *)[cell viewWithTag:2];
-    bodyLabel.text = body;
-    
+
     return cell;
 }
 

@@ -13,7 +13,7 @@
     
 }
 
-- (NSMutableArray *)getTeamList {
+- (void)getTeamList:(void (^)(NSArray* teamList))completion {
     NSMutableArray* teams = [[NSMutableArray alloc] init];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
@@ -26,6 +26,7 @@
         NSError *e = nil;
         NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
         
+        // FIXME: 間違ったRequestをNULL処理
         if (!dict) {
             NSLog(@"Error parsing JSON: %@", e);
         } else {
@@ -35,9 +36,9 @@
                 [teams addObject:teamName];
                 NSLog(@"teams: %@", teams);
             }
+            completion(teams);
         }
     }] resume];
-    return teams;
 }
 
 

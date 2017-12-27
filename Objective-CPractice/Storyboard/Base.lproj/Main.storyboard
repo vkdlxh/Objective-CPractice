@@ -30,26 +30,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-yg-nCg">
-                                                    <rect key="frame" x="15" y="11" width="29" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" verticalHuggingPriority="251" text="body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g34-gf-bdH">
-                                                    <rect key="frame" x="59" y="11" width="301" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="g34-gf-bdH" secondAttribute="bottom" constant="11" id="1DM-91-ax8"/>
-                                                <constraint firstItem="g34-gf-bdH" firstAttribute="leading" secondItem="bhA-yg-nCg" secondAttribute="trailing" constant="15" id="CkM-xO-VIY"/>
                                                 <constraint firstItem="bhA-yg-nCg" firstAttribute="leading" secondItem="mmF-2u-d1P" secondAttribute="leading" constant="15" id="DTi-dQ-fic"/>
+                                                <constraint firstAttribute="trailing" secondItem="bhA-yg-nCg" secondAttribute="trailing" constant="15" id="Dyz-Yk-qNg"/>
                                                 <constraint firstItem="bhA-yg-nCg" firstAttribute="top" secondItem="mmF-2u-d1P" secondAttribute="top" constant="11" id="K7w-OK-eut"/>
-                                                <constraint firstItem="g34-gf-bdH" firstAttribute="top" secondItem="mmF-2u-d1P" secondAttribute="top" constant="11" id="Va9-Ae-aUU"/>
                                                 <constraint firstAttribute="bottom" secondItem="bhA-yg-nCg" secondAttribute="bottom" constant="11" id="Zoe-wL-cW6"/>
-                                                <constraint firstAttribute="trailing" secondItem="g34-gf-bdH" secondAttribute="trailing" constant="15" id="z4y-pj-hZ9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

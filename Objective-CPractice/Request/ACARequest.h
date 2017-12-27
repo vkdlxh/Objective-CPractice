@@ -10,6 +10,6 @@
 
 @interface ACARequest : NSObject
 
-- (NSMutableArray *)getTeamList;
+- (void)getTeamList:(void (^)(NSArray* teamList))completion;
 
 @end
