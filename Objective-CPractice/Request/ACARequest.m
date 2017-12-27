@@ -25,8 +25,13 @@
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSError *e = nil;
         NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+//        NSLog(@"Response : %@",response);
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        if ([httpResponse statusCode] != 200) {
+            NSLog(@"statusCode should be 200, but is %ld",(long)[httpResponse statusCode]);
+            return;
+        }
         
-        // FIXME: 間違ったRequestをNULL処理
         if (!dict) {
             NSLog(@"Error parsing JSON: %@", e);
         } else {
