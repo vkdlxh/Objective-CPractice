@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA5AF5831FF25BFA004C25A9 /* ACARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5AF5821FF25BFA004C25A9 /* ACARequest.m */; };
 		DA5AF58A1FF271A9004C25A9 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5AF5891FF271A9004C25A9 /* Team.m */; };
+		DA5AF58E1FF36841004C25A9 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5AF58D1FF36841004C25A9 /* Group.m */; };
 		DA7C8AC21FF21816004CBD69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8AC11FF21816004CBD69 /* AppDelegate.m */; };
 		DA7C8AC51FF21816004CBD69 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8AC41FF21816004CBD69 /* ViewController.m */; };
 		DA7C8AC81FF21816004CBD69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7C8AC61FF21816004CBD69 /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 		DA5AF5841FF25CC3004C25A9 /* ACARequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACARequest.h; sourceTree = "<group>"; };
 		DA5AF5891FF271A9004C25A9 /* Team.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		DA5AF58B1FF271B1004C25A9 /* Team.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		DA5AF58C1FF36839004C25A9 /* Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		DA5AF58D1FF36841004C25A9 /* Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		DA7C8ABD1FF21816004CBD69 /* Objective-CPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-CPractice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7C8AC01FF21816004CBD69 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA7C8AC11FF21816004CBD69 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 			children = (
 				DA5AF58B1FF271B1004C25A9 /* Team.h */,
 				DA5AF5891FF271A9004C25A9 /* Team.m */,
+				DA5AF58C1FF36839004C25A9 /* Group.h */,
+				DA5AF58D1FF36841004C25A9 /* Group.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5AF58E1FF36841004C25A9 /* Group.m in Sources */,
 				DA5AF58A1FF271A9004C25A9 /* Team.m in Sources */,
 				DA7C8AC51FF21816004CBD69 /* ViewController.m in Sources */,
 				DA7C8B001FF22C8F004CBD69 /* FirstChildClass.m in Sources */,

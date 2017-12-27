@@ -12,4 +12,6 @@
 
 - (void)getTeamList:(void (^)(NSArray* teamList))completion;
 
+- (void)getGroupList:(NSString *)domain completion:(void (^)(NSArray* groupList))completion;
+
 @end

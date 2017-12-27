@@ -24,12 +24,24 @@
     ACARequest *instance = [[ACARequest alloc] init];
         // Background operations
     [instance getTeamList:^(NSArray *teamList) {
-        titleArray = teamList;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Main Thread
-            [self.tableView reloadData];
-            NSLog(@"titleArray = %@", titleArray);
-        });
+        
+        NSString *firstTeam = [teamList firstObject];
+        [instance getGroupList:firstTeam completion:^(NSArray *groupList) {
+            titleArray = groupList;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Main Thread
+                [self.tableView reloadData];
+                NSLog(@"titleArray = %@", titleArray);
+            });
+        }];
+        
+        
+//        titleArray = teamList;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // Main Thread
+//            [self.tableView reloadData];
+//            NSLog(@"titleArray = %@", titleArray);
+//        });
     }];
 }
     

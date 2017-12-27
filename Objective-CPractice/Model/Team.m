@@ -12,6 +12,7 @@
 
 @synthesize domain;
 @synthesize name;
+
 - (id) initTeam:(NSDictionary *)dict {
     NSString *domain = [dict valueForKey:@"domain"];
     NSString *name = [dict valueForKey:@"name"];
