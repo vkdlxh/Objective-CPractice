@@ -14,13 +14,23 @@
     
 }
 
+-(NSMutableURLRequest *)request:(NSString *)url httpMethod:(NSString *)httpMethod apiToken:(NSString *)apiToken {
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    
+    [request setURL: [NSURL URLWithString:url]];
+    [request setHTTPMethod:httpMethod];
+    [request setValue:apiToken forHTTPHeaderField:@"X-DocBaseToken"];
+    
+    return request;
+}
+
 - (void)getTeamList:(void (^)(NSArray* teamList))completion {
     NSMutableArray* teams = [[NSMutableArray alloc] init];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSString *url = @"https://api.docbase.io/teams";
+    NSString *httpMethod = @"GET";
+    NSString *apiToken = @"8ZwKUqC7QkJJKZN2hP2i";
     
-    [request setURL: [NSURL URLWithString:@"https://api.docbase.io/teams"]];
-    [request setHTTPMethod:@"GET"];
-    [request setValue:@"a4xs7VcTEzscaWnG1Rjp" forHTTPHeaderField:@"X-DocBaseToken"];
+    NSMutableURLRequest *request = [self request:url httpMethod:httpMethod apiToken:apiToken];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -32,7 +42,7 @@
             completion(NULL);
             return;
         }
-        
+
         if (!dict) {
             NSLog(@"Error parsing JSON: %@", e);
         } else {
@@ -49,12 +59,11 @@
 
 -(void)getGroupList:(NSString *)domain completion:(void (^)(NSArray *))completion {
     NSMutableArray* groups = [[NSMutableArray alloc] init];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    NSString *urlString = [NSString stringWithFormat:@"https://api.docbase.io/teams/%@/groups",domain];
+    NSString *url = [NSString stringWithFormat:@"https://api.docbase.io/teams/%@/groups",domain];
+    NSString *httpMethod = @"GET";
+    NSString *apiToken = @"8ZwKUqC7QkJJKZN2hP2i";
     
-    [request setURL: [NSURL URLWithString:urlString]];
-    [request setHTTPMethod:@"GET"];
-    [request setValue:@"a4xs7VcTEzscaWnG1Rjp" forHTTPHeaderField:@"X-DocBaseToken"];
+    NSMutableURLRequest *request = [self request:url httpMethod:httpMethod apiToken:apiToken];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
