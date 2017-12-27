@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubViewController : UIViewController
+@interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+    NSString *team;
+}
+
+@property IBOutlet UITableView *tableView;
+@property (retain) NSString *team;
 
 @end

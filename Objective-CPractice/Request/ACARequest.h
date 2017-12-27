@@ -10,6 +10,10 @@
 
 @interface ACARequest : NSObject
 
+- (NSMutableURLRequest *)request:(NSString *)url httpMethod:(NSString *)httpMethod apiToken:(NSString *)apiToken;
+
 - (void)getTeamList:(void (^)(NSArray* teamList))completion;
+
+- (void)getGroupList:(NSString *)domain completion:(void (^)(NSArray* groupList))completion;
 
 @end

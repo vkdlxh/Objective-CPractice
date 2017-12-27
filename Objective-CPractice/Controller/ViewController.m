@@ -15,20 +15,19 @@
 @end
 
 @implementation ViewController {
-    NSArray *titleArray;
+    NSArray *teams;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ACARequest *instance = [[ACARequest alloc] init];
-        // Background operations
+//    ACARequest *instance = [[ACARequest alloc] init];
+    ACARequest *instance = [ACARequest new];
     [instance getTeamList:^(NSArray *teamList) {
-        titleArray = teamList;
+        teams = teamList;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Main Thread
             [self.tableView reloadData];
-            NSLog(@"titleArray = %@", titleArray);
         });
     }];
 }
@@ -39,11 +38,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return titleArray.count;
+    return teams.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"tableCell";
+    static NSString *CellIdentifier = @"TeamCell";
     UITableViewCell *cell =
     [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -51,7 +50,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    NSString *title = [NSString stringWithString:titleArray[indexPath.row]];
+    NSString *title = [NSString stringWithString:teams[indexPath.row]];
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
     titleLabel.text = title;
 
@@ -62,7 +61,8 @@
     if ([segue.identifier  isEqualToString:@"GoSubViewSegue"]) {
         SubViewController *vc = segue.destinationViewController;
         NSInteger selectedIndex = self.tableView.indexPathForSelectedRow.row;
-        vc.navigationItem.title = titleArray[selectedIndex];
+//        vc.navigationItem.title = teams[selectedIndex];
+        vc.team = teams[selectedIndex];
     }
 }
 

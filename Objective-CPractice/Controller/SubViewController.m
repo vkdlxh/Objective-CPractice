@@ -7,21 +7,52 @@
 //
 
 #import "SubViewController.h"
+#import "ACARequest.h"
 
 @interface SubViewController ()
 
 @end
 
-@implementation SubViewController
+@implementation SubViewController {
+    NSArray *groups;
+}
+
+@synthesize team;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationItem.title = team;
+    
+    ACARequest *instance = [ACARequest new];
+    [instance getGroupList:team completion:^(NSArray *groupList) {
+        groups = groupList;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Main Thread
+            [self.tableView reloadData];
+        });
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return groups.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"GroupCell";
+    UITableViewCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if(cell==nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    NSString *title = [NSString stringWithString:groups[indexPath.row]];
+    cell.textLabel.text = title;
+
+    return cell;
 }
 
 /*
