@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> 
+@interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) NSString *team;

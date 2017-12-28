@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
+#import "Comment.h"
+#import "Tag.h"
+#import "Group.h"
 
 @interface Memo: NSObject
+
+@property (nonatomic, assign) NSInteger memoId;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *body;
+@property (nonatomic, assign) BOOL draft;
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *created_at;
+@property (nonatomic, strong) NSMutableArray *tags;
+@property (nonatomic, strong) NSString *scope;
+@property (nonatomic, strong) NSMutableArray *groups;
+@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) NSMutableArray *comments;
 
 @end
