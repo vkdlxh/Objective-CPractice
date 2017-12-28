@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *domain;
 @property (nonatomic, strong) NSString *name;
 
-- (id) initTeam:(NSDictionary *)dict;
+- (id) initTeam:(NSDictionary *)team;
 
 @end

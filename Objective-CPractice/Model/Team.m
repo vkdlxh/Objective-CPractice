@@ -13,12 +13,12 @@
 @synthesize domain;
 @synthesize name;
 
-- (id) initTeam:(NSDictionary *)dict {
+- (id) initTeam:(NSDictionary *)team {
     self = [super init];
     
     if(self) {
-        NSString *domain = [dict valueForKey:@"domain"];
-        NSString *name = [dict valueForKey:@"name"];
+        NSString *domain = [team valueForKey:@"domain"];
+        NSString *name = [team valueForKey:@"name"];
         
         self.domain = domain;
         self.name = name;

@@ -13,13 +13,13 @@
 @synthesize groupId;
 @synthesize name;
 
-- (id)initGroup:(NSDictionary *)dict {
+- (id)initGroup:(NSDictionary *)group {
     
     self = [super init];
     
     if(self) {
-        NSInteger groupId = [[dict valueForKey:@"id"] intValue];
-        NSString *name = [dict valueForKey:@"name"];
+        NSInteger groupId = [[group valueForKey:@"id"] intValue];
+        NSString *name = [group valueForKey:@"name"];
         
         self.groupId = groupId;
         self.name = name;

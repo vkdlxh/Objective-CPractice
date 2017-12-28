@@ -1,16 +1,15 @@
 //
-//  ViewController.h
+//  MemoListViewController.h
 //  Objective-CPractice
 //
-//  Created by jeonsangjun on 2017/12/26.
+//  Created by jeonsangjun on 2017/12/28.
 //  Copyright © 2017年 jeonsangjun. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MemoListViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
-

@@ -1,18 +1,17 @@
 //
-//  Group.h
+//  Tag.h
 //  Objective-CPractice
 //
-//  Created by jeonsangjun on 2017/12/27.
+//  Created by jeonsangjun on 2017/12/28.
 //  Copyright © 2017年 jeonsangjun. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface Group : NSObject
+@interface Tag:NSObject
 
-@property (nonatomic, assign) NSInteger groupId;
 @property (nonatomic, strong) NSString *name;
 
-- (id) initGroup:(NSDictionary *)group;
+- (id)initTag:(NSDictionary *)tag;
 
 @end
