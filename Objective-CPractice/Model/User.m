@@ -10,10 +10,6 @@
 
 @implementation User
 
-@synthesize userId;
-@synthesize name;
-@synthesize profile_image_url;
-
 - (id) initUser:(NSDictionary *)user {
     self = [super init];
     

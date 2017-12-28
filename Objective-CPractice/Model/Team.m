@@ -10,9 +10,6 @@
 
 @implementation Team
 
-@synthesize domain;
-@synthesize name;
-
 - (id) initTeam:(NSDictionary *)team {
     self = [super init];
     

@@ -10,11 +10,6 @@
 
 @implementation Comment
 
-@synthesize commentId;
-@synthesize body;
-@synthesize created_at;
-@synthesize user;
-
 - (id) initComment:(NSDictionary *)comment {
     self = [super init];
     

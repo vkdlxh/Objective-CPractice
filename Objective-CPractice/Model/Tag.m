@@ -10,8 +10,6 @@
 
 @implementation Tag
 
-@synthesize name;
-
 - (id)initTag:(NSDictionary *)tag {
     self = [super init];
     

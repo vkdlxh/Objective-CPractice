@@ -15,20 +15,6 @@
 
 @implementation SubViewController
 
-//@synthesize team;
-@synthesize groups;
-
-- (NSString *)team {
-    return _team;
-}
-
-- (void)setTeam:(NSString *)team {
-    if (_team != team) {
-//        [_team release];
-        _team = [team copy];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = _team;
@@ -48,7 +34,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return groups.count;
+    return _groups.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,7 +45,7 @@
     if(cell==nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    NSString *title = [NSString stringWithString:groups[indexPath.row]];
+    NSString *title = [NSString stringWithString:_groups[indexPath.row]];
     cell.textLabel.text = title;
 
     return cell;

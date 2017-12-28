@@ -10,9 +10,6 @@
 
 @implementation Group
 
-@synthesize groupId;
-@synthesize name;
-
 - (id)initGroup:(NSDictionary *)group {
     
     self = [super init];
