@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+    NSString *_team;
+}
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, weak) NSString *team;
+//@property (nonatomic, weak) NSString *team;
 @property (nonatomic, copy) NSArray *groups;
+
+- (NSString *)team;
+- (void)setTeam:(NSString *)team;
 
 @end

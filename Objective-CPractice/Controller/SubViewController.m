@@ -15,15 +15,26 @@
 
 @implementation SubViewController
 
-@synthesize team;
+//@synthesize team;
 @synthesize groups;
+
+- (NSString *)team {
+    return _team;
+}
+
+- (void)setTeam:(NSString *)team {
+    if (_team != team) {
+//        [_team release];
+        _team = [team copy];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = team;
+    self.navigationItem.title = _team;
     
     ACARequest *instance = [ACARequest new];
-    [instance getGroupList:team completion:^(NSArray *groupList) {
+    [instance getGroupList:_team completion:^(NSArray *groupList) {
         self.groups = groupList;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Main Thread
