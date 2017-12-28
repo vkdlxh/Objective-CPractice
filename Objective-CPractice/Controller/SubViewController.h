@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
-    NSString *team;
-}
+@interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property IBOutlet UITableView *tableView;
-@property (retain) NSString *team;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSString *team;
 
 @end
