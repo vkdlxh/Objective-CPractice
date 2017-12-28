@@ -13,11 +13,10 @@
 
 @end
 
-@implementation SubViewController {
-    NSArray *groups;
-}
+@implementation SubViewController
 
 @synthesize team;
+@synthesize groups;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +24,7 @@
     
     ACARequest *instance = [ACARequest new];
     [instance getGroupList:team completion:^(NSArray *groupList) {
-        groups = groupList;
+        self.groups = groupList;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Main Thread
             [self.tableView reloadData];

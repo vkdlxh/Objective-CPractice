@@ -10,8 +10,8 @@
 
 @interface Team : NSObject
 
-@property (nonatomic, assign) NSString *domain;
-@property (nonatomic, assign) NSString *name;
+@property (nonatomic, strong) NSString *domain;
+@property (nonatomic, strong) NSString *name;
 
 - (id) initTeam:(NSDictionary *)dict;
 

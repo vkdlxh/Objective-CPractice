@@ -11,6 +11,7 @@
 @interface SubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSString *team;
+@property (nonatomic, weak) NSString *team;
+@property (nonatomic, copy) NSArray *groups;
 
 @end

@@ -14,11 +14,15 @@
 @synthesize name;
 
 - (id) initTeam:(NSDictionary *)dict {
-    NSString *domain = [dict valueForKey:@"domain"];
-    NSString *name = [dict valueForKey:@"name"];
+    self = [super init];
     
-    self.domain = domain;
-    self.name = name;
+    if(self) {
+        NSString *domain = [dict valueForKey:@"domain"];
+        NSString *name = [dict valueForKey:@"name"];
+        
+        self.domain = domain;
+        self.name = name;
+    }
     
     return self;
 }

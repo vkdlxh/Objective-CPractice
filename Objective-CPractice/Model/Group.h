@@ -11,7 +11,7 @@
 @interface Group : NSObject
 
 @property (nonatomic, assign) NSInteger groupId;
-@property (nonatomic, assign) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
 - (id) initGroup:(NSDictionary *)dict;
 
