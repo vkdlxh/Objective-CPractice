@@ -26,4 +26,6 @@
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSMutableArray *comments;
 
+- (id) initMemo:(NSDictionary *)memo;
+
 @end

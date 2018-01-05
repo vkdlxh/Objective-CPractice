@@ -9,6 +9,7 @@
 #import "ACARequest.h"
 #import "Team.h"
 #import "Group.h"
+#import "Memo.h"
 
 @implementation ACARequest {
     
@@ -87,6 +88,41 @@
             completion(groups);
         }
     }] resume];
+}
+
+-(void)getMemoList:(NSString *)domain group:(NSString *)group completion:(void (^)(NSArray *))completion {
+    NSMutableArray* memos = [[NSMutableArray alloc] init];
+    NSString *url = [NSString stringWithFormat:@"https://api.docbase.io/teams/%@/posts?q=group:%@",domain, group];
+    NSString *encodingURL = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *httpMethod = @"GET";
+    NSString *apiToken = @"8ZwKUqC7QkJJKZN2hP2i";
+    
+    NSMutableURLRequest *request = [self request:encodingURL httpMethod:httpMethod apiToken:apiToken];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSError *e = nil;
+        NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        NSLog(@"MemoList Response result : %@", [dict description]);
+        if ([httpResponse statusCode] != 200) {
+            NSLog(@"statusCode should be 200, but is %ld",(long)[httpResponse statusCode]);
+            completion(NULL);
+            return;
+        }
+        
+        if (!dict) {
+            NSLog(@"Error parsing JSON: %@", e);
+        } else {
+            for (NSDictionary *post in [dict objectForKey:@"posts"]) {
+                Memo *memo = [[Memo new] initMemo:post];
+                [memos addObject:memo];
+                NSLog(@"%@",memo);
+            }
+            completion(memos);
+        }
+    }] resume];
+    
 }
 
 

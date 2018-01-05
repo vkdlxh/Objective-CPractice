@@ -10,20 +10,20 @@
 
 @implementation Memo
 
-- (id)initGroup:(NSDictionary *)group {
+- (id)initMemo:(NSDictionary *)memo {
     
     self = [super init];
     
     if(self) {
-        NSInteger memoId = [[group valueForKey:@"id"] intValue];
-        NSString *title = [group valueForKey:@"title"];
-        NSString *body = [group valueForKey:@"body"];
-        BOOL draft = [[group valueForKey:@"draft"] boolValue];
-        NSString *url = [group valueForKey:@"url"];
-        NSString *created_at = [group valueForKey:@"created_at"];
-        NSString *scope = [group valueForKey:@"scope"];
+        NSInteger memoId = [[memo valueForKey:@"id"] intValue];
+        NSString *title = [memo valueForKey:@"title"];
+        NSString *body = [memo valueForKey:@"body"];
+        BOOL draft = [[memo valueForKey:@"draft"] boolValue];
+        NSString *url = [memo valueForKey:@"url"];
+        NSString *created_at = [memo valueForKey:@"created_at"];
+        NSString *scope = [memo valueForKey:@"scope"];
         
-        NSArray *tagsDict = [group valueForKey:@"tags"];
+        NSArray *tagsDict = [memo valueForKey:@"tags"];
         if (tagsDict != NULL) {
             for (NSDictionary *tagDict in tagsDict) {
                 Tag *tag = [[Tag alloc] initTag:tagDict];
@@ -31,7 +31,7 @@
             }
         }
         
-        NSArray *commentsDict = [group valueForKey:@"comments"];
+        NSArray *commentsDict = [memo valueForKey:@"comments"];
         if (commentsDict != NULL) {
             for (NSDictionary *commentDict in commentsDict) {
                 Comment *comment = [[Comment alloc] initComment:commentDict];
@@ -39,7 +39,7 @@
             }
         }
         
-        NSArray *groupsDict = [group valueForKey:@"groups"];
+        NSArray *groupsDict = [memo valueForKey:@"groups"];
         if (groupsDict != NULL) {
             for (NSDictionary *groupDict in groupsDict) {
                 Group *group = [[Group alloc] initGroup:groupDict];
@@ -47,7 +47,7 @@
             }
         }
         
-        NSDictionary *userDict = [group valueForKey:@"user"];
+        NSDictionary *userDict = [memo valueForKey:@"user"];
         User *user = [[User alloc] initUser:userDict];
         
         self.memoId = memoId;

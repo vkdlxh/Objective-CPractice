@@ -11,5 +11,8 @@
 @interface MemoListViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) NSString *group;
+@property (nonatomic, weak) NSString *team;
+@property (nonatomic, copy) NSArray *memos;
 
 @end

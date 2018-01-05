@@ -16,4 +16,6 @@
 
 - (void)getGroupList:(NSString *)domain completion:(void (^)(NSArray* groupList))completion;
 
+- (void)getMemoList:(NSString *)group group:(NSString *)group completion:(void (^)(NSArray* memoList))completion;
+
 @end

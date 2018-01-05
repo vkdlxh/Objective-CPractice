@@ -61,7 +61,6 @@
     if ([segue.identifier  isEqualToString:@"GoSubViewSegue"]) {
         SubViewController *vc = segue.destinationViewController;
         NSInteger selectedIndex = self.tableView.indexPathForSelectedRow.row;
-//        vc.navigationItem.title = teams[selectedIndex];
         vc.team = teams[selectedIndex];
     }
 }
