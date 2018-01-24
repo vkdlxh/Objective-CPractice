@@ -26,6 +26,7 @@
 		DA7C8AFC1FF21D72004CBD69 /* FirstClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8AFB1FF21D72004CBD69 /* FirstClass.m */; };
 		DA7C8B001FF22C8F004CBD69 /* FirstChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8AFF1FF22C8F004CBD69 /* FirstChildClass.m */; };
 		DA8010381FF24D6400EBDA90 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8010371FF24D6400EBDA90 /* SubViewController.m */; };
+		DA8D2B4C20185C1100F3FFA2 /* WriteMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8D2B4B20185C1100F3FFA2 /* WriteMemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		DA7C8AFF1FF22C8F004CBD69 /* FirstChildClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstChildClass.m; sourceTree = "<group>"; };
 		DA8010361FF24D6400EBDA90 /* SubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
 		DA8010371FF24D6400EBDA90 /* SubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
+		DA8D2B4A20185C1100F3FFA2 /* WriteMemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WriteMemoViewController.h; sourceTree = "<group>"; };
+		DA8D2B4B20185C1100F3FFA2 /* WriteMemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WriteMemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				DA8010371FF24D6400EBDA90 /* SubViewController.m */,
 				DA5AF58F1FF4BED2004C25A9 /* MemoListViewController.h */,
 				DA5AF5901FF4BED2004C25A9 /* MemoListViewController.m */,
+				DA8D2B4A20185C1100F3FFA2 /* WriteMemoViewController.h */,
+				DA8D2B4B20185C1100F3FFA2 /* WriteMemoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 		DA7C8ABF1FF21816004CBD69 /* Objective-CPractice */ = {
 			isa = PBXGroup;
 			children = (
+				DA8D2B4D2018758300F3FFA2 /* Manager */,
 				DA5AF5851FF27176004C25A9 /* Model */,
 				DA5AF5801FF259BA004C25A9 /* Storyboard */,
 				DA5AF57F1FF259A1004C25A9 /* Controller */,
@@ -225,6 +231,13 @@
 				DA7C8AFF1FF22C8F004CBD69 /* FirstChildClass.m */,
 			);
 			path = PracticeClass;
+			sourceTree = "<group>";
+		};
+		DA8D2B4D2018758300F3FFA2 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA5AF58E1FF36841004C25A9 /* Group.m in Sources */,
+				DA8D2B4C20185C1100F3FFA2 /* WriteMemoViewController.m in Sources */,
 				DA5AF58A1FF271A9004C25A9 /* Team.m in Sources */,
 				DA7C8AC51FF21816004CBD69 /* ViewController.m in Sources */,
 				DA7C8B001FF22C8F004CBD69 /* FirstChildClass.m in Sources */,

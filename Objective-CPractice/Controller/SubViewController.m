@@ -18,10 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = _team;
+    ACARequest *instance = [ACARequest sharedManager];
+    self.navigationItem.title = instance.team;
     
-    ACARequest *instance = [ACARequest new];
-    [instance getGroupList:_team completion:^(NSArray *groupList) {
+    [instance getGroupList: ^(NSArray *groupList) {
         self.groups = groupList;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Main Thread
@@ -46,7 +46,8 @@
     if(cell==nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    NSString *title = [NSString stringWithString:_groups[indexPath.row]];
+    Group *group = (Group *)_groups[indexPath.row];
+    NSString *title = [NSString stringWithString:group.name];
     cell.textLabel.text = title;
 
     return cell;
@@ -58,10 +59,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier  isEqualToString:@"GoMemoListSegue"]) {
-        MemoListViewController *vc = segue.destinationViewController;
         NSInteger selectedIndex = self.tableView.indexPathForSelectedRow.row;
-        vc.group = _groups[selectedIndex];
-        vc.team = _team;
+        
+        ACARequest *instance = [ACARequest sharedManager];
+        instance.group = _groups[selectedIndex];
     }
 }
 

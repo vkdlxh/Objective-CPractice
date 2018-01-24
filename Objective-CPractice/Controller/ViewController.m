@@ -21,8 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    ACARequest *instance = [[ACARequest alloc] init];
-    ACARequest *instance = [ACARequest new];
+    ACARequest *instance = [ACARequest sharedManager];
     [instance getTeamList:^(NSArray *teamList) {
         teams = teamList;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -59,9 +58,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier  isEqualToString:@"GoSubViewSegue"]) {
-        SubViewController *vc = segue.destinationViewController;
         NSInteger selectedIndex = self.tableView.indexPathForSelectedRow.row;
-        vc.team = teams[selectedIndex];
+
+        ACARequest *instance = [ACARequest sharedManager];
+        instance.team = teams[selectedIndex];
     }
 }
 

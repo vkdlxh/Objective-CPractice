@@ -7,15 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Group.h"
 
 @interface ACARequest : NSObject
+
+@property (nonatomic, strong) NSString *team;
+@property (nonatomic, strong) Group *group;
+
++ (id)sharedManager;
 
 - (NSMutableURLRequest *)request:(NSString *)url httpMethod:(NSString *)httpMethod apiToken:(NSString *)apiToken;
 
 - (void)getTeamList:(void (^)(NSArray* teamList))completion;
 
-- (void)getGroupList:(NSString *)domain completion:(void (^)(NSArray* groupList))completion;
+- (void)getGroupList:(void (^)(NSArray *))completion;
 
-- (void)getMemoList:(NSString *)group group:(NSString *)group completion:(void (^)(NSArray* memoList))completion;
+- (void)getMemoList:(void (^)(NSArray* memoList))completion;
+
+- (void)writeMemo:(NSDictionary *)dict completion:(void (^)(BOOL))completion;
+
+
 
 @end

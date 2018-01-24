@@ -9,6 +9,7 @@
 #import "MemoListViewController.h"
 #import "SubViewController.h"
 #import "ACARequest.h"
+#import "Memo.h"
 
 @interface MemoListViewController ()
 
@@ -18,10 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = _group;
+    ACARequest *instance = [ACARequest sharedManager];
+    self.navigationItem.title = instance.group.name;
+
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                  target:self
+                                  action:@selector(addTapped:)];
+    self.navigationItem.rightBarButtonItem = addButton;
     
-    ACARequest *instance = [ACARequest new];
-    [instance getMemoList:_team group:_group completion:^(NSArray *memoList) {
+    
+    [instance getMemoList:^(NSArray *memoList) {
         self.memos = memoList;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Main Thread
@@ -30,9 +38,8 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)addTapped:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"GoWriteMemoSegue" sender:self];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -51,8 +58,17 @@
     if(cell==nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    NSString *title = [NSString stringWithString:[_memos[indexPath.row] title]];
-    cell.textLabel.text = title;
+    
+    UILabel *titleLabel = [cell viewWithTag:1];
+    UILabel *bodylabel = [cell viewWithTag:2];
+    
+    Memo *memo = (Memo *)_memos[indexPath.row];
+    NSString *title = [NSString stringWithString:[memo title]];
+    NSString *body = [NSString stringWithString:[memo body]];
+    
+    titleLabel.text = title;
+    bodylabel.text = body;
+    
     
     return cell;
 }
